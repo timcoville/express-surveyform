@@ -19,8 +19,9 @@ app.get('/', function(req, res) {
 
 app.post('/process', function(req, res) {
     req.session.survey = req.body;
+    var context = { 'data': req.body };
 
-    res.redirect('/results');
+    res.render('result', {context: context });
 });
 
 app.get('/results', function(req, res) {
